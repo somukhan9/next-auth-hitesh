@@ -19,18 +19,10 @@ export async function sendMail({ email, emailType, userId }: ParameterType) {
       user.verifyToken = hashedToken
       user.verifyTokenExpiry = Date.now() + 1 * 24 * 60 * 60 * 1000
       await user.save()
-      // await User.findByIdAndUpdate(userId, {
-      //   verifyToken: hashedToken,
-      //   verifyTokenExpiry: Date.now() + 1 * 24 * 60 * 60 * 1000,
-      // })
     } else if (emailType === EmailType.reset) {
-      // user.forgotPasswordToken = hashedToken
-      // user.forgotPasswordTokenExpiry = Date.now() + 1 * 24 * 60 * 60 * 1000
-      // await user.save({runValidator: false})
-      await User.findByIdAndUpdate(userId, {
-        forgotPasswordToken: hashedToken,
-        forgotPasswordTokenExpiry: Date.now() + 1 * 24 * 60 * 60 * 1000,
-      })
+      user.forgotPasswordToken = hashedToken
+      user.forgotPasswordTokenExpiry = Date.now() + 1 * 24 * 60 * 60 * 1000
+      await user.save({ runValidator: false })
     }
 
     var transport = nodemailer.createTransport({
