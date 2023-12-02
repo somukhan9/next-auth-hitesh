@@ -99,7 +99,7 @@ export default function LoginPage() {
         </button>
       </form>
       <p>
-        Don't an account?
+        Don&apos;t an account?
         <Link href="/signup" className="ml-2 text-slate-500">
           Signup
         </Link>
