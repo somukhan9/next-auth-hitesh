@@ -56,7 +56,7 @@ export default function ProfilePage() {
   return (
     <section className="min-h-screen flex flex-col items-center justify-center gap-3">
       <h1 className="text-3xl font-bold">
-        Profile Page for &quot;{user.username}&quot;
+        Profile Page for "{user.username}";
       </h1>
       <p>Username: {user.username}</p>
       <p>Email Address: {user.email}</p>
